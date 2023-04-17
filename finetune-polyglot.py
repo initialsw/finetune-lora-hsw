@@ -21,7 +21,7 @@ from peft import (
     set_peft_model_state_dict,
 )
 #from transformers import LlamaForCausalLM, LlamaTokenizer
-from transformers import GPTNeoXForCausalLM, GPTNeoXTokenizer
+from transformers import GPTNeoXForCausalLM, GPTNeoXTokenizerFast
 
 from utils.prompter import Prompter
 
@@ -120,7 +120,7 @@ def train(
     )
 
     #tokenizer = LlamaTokenizer.from_pretrained(base_model)
-    tokenizer = GPTNeoXTokenizer.from_pretrained(base_model)
+    tokenizer = GPTNeoXTokenizerFast.from_pretrained(base_model)
 
     tokenizer.pad_token_id = (
         0  # unk. we want this to be different from the eos token
